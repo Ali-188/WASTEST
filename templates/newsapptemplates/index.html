@@ -1,0 +1,49 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link href = "{% static 'Stylesheets/DemoStyleSheet.css' %}" rel = "stylesheet">
+</head>
+<style>
+    body{
+        background-color: #ffff00;
+    }
+
+
+</style>
+
+<body>
+    <h1>School News</h1>
+
+    <h2>Weather warning</h2>
+
+    <i>by Allen White. 20/3/2023</i>
+
+    <p>According to the weather forecast, there will be heavy snow tomorrow which might cause
+    some disruptions for the transportation</p>
+
+    <h2>Back to in-person teaching</h2>
+
+
+    <i>by David Black. 1/2/2023</i>
+
+    <p>This year, we will all go back to in-person teaching</p>
+
+    <div>
+      {% if newslist %}
+        {% for news in newslist %}
+        <h2>{{news.newstitle}}</h2>
+        <p><i> by {{news.author}}. &emsp; {{news.date}}</i></p>
+        <p>{{news.description_text}}</p><br><br>
+        {% endfor %}
+        {% else %}
+        <strong> I don't know the news, lol ask someone else</strong>
+        {% endif %}
+
+    </div>
+
+
+
+</body>
+
+</html>
